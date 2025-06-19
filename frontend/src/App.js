@@ -6,7 +6,14 @@ export default function SymptomChecker() {
   const [results, setResults] = useState([]);
 
   const handleSearch = async () => {
-    const res = await fetch("https://symptom-checker-api.onrender.com/api/symptoms");
+    const res = await const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+fetch(`${BASE_URL}/api/symptoms`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ symptom: userInput }) // ← adjust based on your app
+});
     const data = await res.json();
     setResults(data.conditions || []);
   };
