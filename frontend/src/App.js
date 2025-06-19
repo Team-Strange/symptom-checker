@@ -6,7 +6,7 @@ export default function SymptomChecker() {
   const [results, setResults] = useState([]);
 
   const handleSearch = async () => {
-    const res = await fetch(`http://localhost:4000/api/check?symptom=${input.trim().toLowerCase()}`);
+    const res = await fetch("https://symptom-checker-api.onrender.com/api/symptoms");
     const data = await res.json();
     setResults(data.conditions || []);
   };
