@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 app.post("/api/symptoms", (req, res) => {
   const { symptom } = req.body;
 
-  const conditionMap = {
+  const conditions = {
     fever: ["Flu", "Covid-19", "Dengue"],
     cough: ["Cold", "Covid-19"],
     headache: ["Migraine", "Tension Headache"],
