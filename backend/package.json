@@ -1,6 +1,3 @@
-"scripts": {
-  "start": "node backend/index.js"
-}
 {
   "name": "symptom-checker-api",
   "version": "1.0.0",
