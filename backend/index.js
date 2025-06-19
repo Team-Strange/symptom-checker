@@ -19,8 +19,8 @@ app.post("/api/symptoms", (req, res) => {
     fatigue: ["Anemia", "Thyroid", "Sleep Deprivation"]
   };
 
-  const results = conditionMap[symptom.toLowerCase()] || [];
-  res.json({ conditions: results });
+  const result = conditions[symptom.toLowerCase()] || [];
+  res.json({ conditions: result });
 });
 
 const PORT = process.env.PORT || 5000;
