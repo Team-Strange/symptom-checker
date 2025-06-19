@@ -9,7 +9,6 @@ app.get("/", (req, res) => {
   res.send("API is working");
 });
 
-// ✅ Add this route to handle the frontend POST request
 app.post("/api/symptoms", (req, res) => {
   const { symptom } = req.body;
 
@@ -17,8 +16,7 @@ app.post("/api/symptoms", (req, res) => {
     fever: ["Flu", "Covid-19", "Dengue"],
     cough: ["Cold", "Covid-19"],
     headache: ["Migraine", "Tension Headache"],
-    fatigue: ["Anemia", "Thyroid", "Sleep Deprivation"],
-    // Add more mappings as needed
+    fatigue: ["Anemia", "Thyroid", "Sleep Deprivation"]
   };
 
   const results = conditionMap[symptom.toLowerCase()] || [];
