@@ -6,7 +6,23 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("API is working!");
+  res.send("API is working");
+});
+
+// ✅ Add this route to handle the frontend POST request
+app.post("/api/symptoms", (req, res) => {
+  const { symptom } = req.body;
+
+  const conditionMap = {
+    fever: ["Flu", "Covid-19", "Dengue"],
+    cough: ["Cold", "Covid-19"],
+    headache: ["Migraine", "Tension Headache"],
+    fatigue: ["Anemia", "Thyroid", "Sleep Deprivation"],
+    // Add more mappings as needed
+  };
+
+  const results = conditionMap[symptom.toLowerCase()] || [];
+  res.json({ conditions: results });
 });
 
 const PORT = process.env.PORT || 5000;
