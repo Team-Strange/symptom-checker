@@ -5,15 +5,17 @@ export default function SymptomChecker() {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
 
+  const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
   const handleSearch = async () => {
-    const res = await const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-fetch(`${BASE_URL}/api/symptoms`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ symptom: userInput }) // ← adjust based on your app
-});
+    const res = await fetch(`${BASE_URL}/api/symptoms`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ symptom: input }),
+    });
+
     const data = await res.json();
     setResults(data.conditions || []);
   };
